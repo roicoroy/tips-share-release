@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="createPointsForm" #createPointFormRef="ngForm">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{isEdit ? 'Edit Point' : 'Add New Point'}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-col size="12" class="label">
+          <ion-item>
+            <ion-label>Label:</ion-label>
+            <ion-input class='label' position="stacked" inputmode='text' type="text" clearInput='true'
+              clearOnEdit='true' color='dark' name='label' formControlName='label'></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label>Value:</ion-label>
+            <ion-select interface="action-sheet" #selectRef multiple="false" formControlName="value">
+              <ion-select-option *ngFor="let v of values" [value]="v.value">{{v.value}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button [disabled]="!createPointsForm.valid" (click)="isEdit ? saveEditedPoint() : addNewPoint()" expand="block"
+      fill="solid" shape="round">
+      {{isEdit ? 'Save Edit Point' : 'Add New Point'}}
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

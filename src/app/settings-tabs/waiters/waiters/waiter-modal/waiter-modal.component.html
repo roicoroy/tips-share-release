@@ -1,0 +1,49 @@
+<script src="waiter-modal.component.ts"></script>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="createWaiterForm" #createWaiterFormRef="ngForm">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{isEdit ? 'Edit Waiter' : 'Add New Waiter'}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-col size="12">
+          <ion-row>
+            <ion-col size-sm="6" offset-sm="3">
+              <app-image-picker
+                [avatar]="avatar"
+                (imagePick)="onImagePicked($event)"
+              ></app-image-picker>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col size="12" class="label">
+          <ion-item>
+            <ion-label position="stacked">Name:</ion-label>
+            <ion-input class='label' inputmode='text' type="text" clearInput='true' clearOnEdit='true' color='dark'
+              name='label' formControlName='name'></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button [disabled]="!createWaiterForm.valid" (click)="isEdit ? saveEWaiter() : addNewWaiter()" expand="block"
+      fill="solid" shape="round">
+      {{isEdit ? 'Save Edited Waiter' : 'Add New Waiter'}}
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+

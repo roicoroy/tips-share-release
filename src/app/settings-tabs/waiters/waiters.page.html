@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons color="dark" slot="start">
+      <ion-button (click)="homePage()">
+        <ion-icon color="dark" slot="start" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Waiters
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background">
+  <ion-header collapse="condense" mode="ios">
+    <ion-toolbar>
+      <ion-card-header>
+        <ion-card-subtitle>Manage waiters and allowcate points merit</ion-card-subtitle>
+        <ion-card-title>Waiters</ion-card-title>
+      </ion-card-header>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card *ngFor="let w of waitersList | async; let i = index">
+    <ion-card-content>
+      <ion-item lines='none'>
+        <ion-label (click)='editWaiter(w, i)'>{{ w.name }}</ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="deleteWaiter(w.id)" expand="block" fill="clear" shape="round">
+            <ion-icon color='danger' name="close"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-item lines='none'>
+        <ion-avatar class="avatar">
+          <ion-spinner name="circles" *ngIf="!w.avatar"></ion-spinner>
+          <ion-img *ngIf="w.avatar" [src]="w.avatar ?? 'assets/shapes.svg'"></ion-img>
+        </ion-avatar>
+      </ion-item>
+    </ion-card-content>
+    <ion-card-content class='color'>
+      <ion-item lines='none'>
+        <ionic-selectable #selectPointsComponent [items]="pointsListState | async" itemValueField="id"
+          itemTextField="label" [(ngModel)]="w.pointsList" [isMultiple]="true" confirmButtonText="OK"
+          closeButtonText="Close" (onChange)='onSelectTableChange($event, i)'>
+          <ng-template ionicSelectableIconTemplate>
+            <ion-icon name="caret-down-outline"></ion-icon>
+          </ng-template>
+          <ng-template ionicSelectableItemTemplate let-point="item" let-isPortSelected="isItemSelected">
+            {{ point.label }} ({{ point.value }})
+          </ng-template>
+        </ionic-selectable>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [disabled]="showAddButton" (click)="addWaiter()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

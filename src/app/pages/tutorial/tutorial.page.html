@@ -1,0 +1,131 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color='dark' fill="clear" (click)="skipWalkthrough()">skip</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="'ion-margin ion-padding">
+  <ion-slides pager="true" [options]="slidesOptions">
+    
+    <ion-slide>
+      <ion-row>
+        <ion-col size="12">
+          <app-aspect-ratio [ratio]="{w:915, h:849}">
+            <app-image-shell class="illustration-image" animation="spinner" [src]="'./assets/svg/calculator.svg'"
+              [alt]="'walkthrough'">
+            </app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col>
+          <div>
+            <h3>This is the first slide</h3>
+            <p>
+              We need to share the tips made on the restaurant <b>but the bosses always steal everything</b>
+              With Tips Share Calculator we can find out
+            </p>
+            <p>
+              <b>the exatcly amount each member makes</b>
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+    
+    <ion-slide>
+      <ion-row>
+        <ion-col size="6">
+          <app-aspect-ratio [ratio]="{w:100, h:100}">
+            <app-image-shell class="illustration-image" animation="spinner" [src]="'./assets/svg/waiter.svg'"
+              [alt]="'walkthrough'">
+            </app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col size="6">
+          <app-aspect-ratio [ratio]="{w:100, h:100}">
+            <app-image-shell class="illustration-image" animation="spinner" [src]="'./assets/svg/waiter-1.svg'"
+              [alt]="'walkthrough'">
+            </app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col>
+          Without one receiving more than another one baseless.
+        </ion-col>
+        <ion-col size="12">
+          
+            <ion-item>
+              <ion-label>Add the waiters list</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label> Add the hours</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label> Add the points criteria</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label> Add the tips made today</ion-label>
+            </ion-item>
+          
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+    
+    <ion-slide>
+      <ion-row>
+        <ion-col size="6">
+          <app-aspect-ratio [ratio]="{w:100, h:100}">
+            <app-image-shell class="illustration-image" animation="spinner" [src]="'./assets/svg/list.svg'"
+              [alt]="'walkthrough'">
+            </app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col size="6">
+          <app-aspect-ratio [ratio]="{w:100, h:100}">
+            <app-image-shell class="illustration-image" animation="spinner" [src]="'./assets/svg/restaurant.svg'"
+              [alt]="'walkthrough'">
+            </app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col>
+          <div>
+            <h3>We can make the shift run more smoothly with Tips Share!</h3>
+            <p>
+              Save your shift, share it with other members, send it to your emails,
+              <b>more features arriving soon</b> do not miss out!
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+    
+    <ion-slide>
+      <ion-row>
+        <ion-col size="12">
+          <app-aspect-ratio [ratio]="{w:924, h:819}">
+            <app-image-shell class="illustration-image" animation="spinner" [src]="'./assets/svg/launch-rise-start.svg'"
+              [alt]="'walkthrough'">
+            </app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col>
+          <ion-row>
+            <ion-col size="12">
+              <div>
+                <h3>It's time to start</h3>
+                <p>
+                  Hope you like this Calculator so you can share the tips you make very nice! Enjoy ;)
+                </p>
+              </div>
+            </ion-col>
+            <ion-col size="12">
+              <ion-button (click)="finish()" class="get-started-button" expand="block" color="dark">Get Started</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+
+  </ion-slides>
+
+</ion-content>

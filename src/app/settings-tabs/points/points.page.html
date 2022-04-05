@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Points
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense" mode="ios">
+    <ion-toolbar>
+      <ion-card-header>
+        <ion-card-subtitle>Add and edit merit criteria</ion-card-subtitle>
+        <ion-card-title>Points</ion-card-title>
+      </ion-card-header>
+    </ion-toolbar>
+  </ion-header> -->
+  <ion-card class='points-card'>
+    <ion-row>
+      <ion-col>
+        <ion-card-header>
+          <ion-card-subtitle>Add and edit merit criteria</ion-card-subtitle>
+          <ion-card-title>Points</ion-card-title>
+        </ion-card-header>
+      </ion-col>
+      <ion-col class="add-button">
+        <!-- <ion-card-header> -->
+          <ion-button color='primary' (click)="addPoint()" expand="block" fill="outline" shape="round">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        <!-- </ion-card-header> -->
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-grid>
+    <!-- {{ pointsList | async | json }} -->
+    <ion-row *ngFor="let p of pointsList | async">
+      <ion-col size="12">
+        <ion-item>
+          <ion-label (click)="editPoint(p)">{{ p.label }}</ion-label>
+          <ion-badge (click)="editPoint(p)" slot="end">{{ p.value }}</ion-badge>
+          <ion-buttons slot="end">
+            <ion-button (click)="delete(p.id)" expand="block" fill="clear" shape="round">
+              <ion-icon name="close" color='danger' (click)="delete(p.id)"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

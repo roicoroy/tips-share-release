@@ -1,0 +1,13 @@
+<ion-list>
+  <ion-item-group *ngIf="viewState$| async as vs">
+    
+    <ion-card-header *ngIf="showAddMessage">
+      <ion-card-subtitle>{{ 'WHAT_IS_HAPPENING' | translate }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-item *ngFor="let entry of entriesListState">
+      <ion-label>{{ entry.date | date }}</ion-label>
+      <ion-note slot="end">{{ entry.tipsMade | currency:'GPB' }}</ion-note>
+    </ion-item>
+  </ion-item-group>
+</ion-list>

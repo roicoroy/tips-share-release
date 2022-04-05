@@ -1,0 +1,44 @@
+<ion-list>
+  <ion-item lines="none"  *ngFor="let waiter of waitersListState">
+      <ion-card>
+        <ion-card-content>
+          <ion-list>
+            <ion-list-header>
+              <ion-col size="9">
+                <ion-label class="ion-text-wrap name-label">
+                  {{ waiter.name }}
+                </ion-label>
+              </ion-col>
+              <ion-col size="3">
+                <ion-avatar>
+                  <ion-img [src]="waiter.avatar ?? 'assets/shapes.svg'"></ion-img>
+                </ion-avatar>
+              </ion-col>
+            </ion-list-header>
+            <ion-item-group  *ngIf="waiter.pointsList">
+              <ion-item lines="none" class="result-tips" *ngFor="let p of waiter.pointsList">
+                <ion-text slot="start"> {{ p.label }} </ion-text>
+                <ion-note slot="end"> {{ p.value }} </ion-note>
+              </ion-item>
+              {{ waiter | json }}
+              <ion-item lines="none" class="result-tips" *ngIf="waiter.totalPoints">
+                <ion-note color='warning' slot="end"> {{ waiter.totalPoints }} </ion-note>
+              </ion-item>
+            </ion-item-group>
+            <ion-item *ngIf="waiter.hours && waiter.totalPoints">
+              <ion-note slot="start">
+                {{ waiter.hours }}h
+              </ion-note>
+              <ion-note slot="end">
+                {{ waiter.totalPoints }} {{'POINTS' | translate}}
+              </ion-note>
+            </ion-item>
+            <ion-item lines="none" class="result-tips" *ngIf="waiter.tipsShare">
+              <ion-text slot="start"> {{ 'YOUR_SHARE' | translate }} : </ion-text>
+              <ion-note slot="end"> {{ waiter.tipsShare | currency:'GPB' }} </ion-note>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+  </ion-item>
+</ion-list>

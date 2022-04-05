@@ -1,0 +1,46 @@
+<ion-header [translucent]="false" collapse="none" color="dark">
+  <ion-toolbar>
+    <ion-buttons slot="start" color="dark">
+      <ion-button size="small" fill="clear" color="dark" color="medium" (click)="settings()">
+        <ion-icon slot="icon-only" ios="settings-outline" color="dark" md="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ 'TIPS_SHARE_CALCULATOR' | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <app-translate></app-translate>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-card-header>
+        <ion-card-subtitle> {{ 'WELCOME' | translate }} </ion-card-subtitle>
+        <ion-card-title> {{ 'TIPS_SHARE_CALCULATOR' | translate }} </ion-card-title>
+      </ion-card-header>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row class="top-row">
+      <ion-col>
+        <app-entries-list></app-entries-list>
+      </ion-col>
+    </ion-row>
+    <ion-row class="bottom-row">
+      <ion-col>
+        <app-waiters-list></app-waiters-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+      <ion-button (click)="calculator()" expand="block" fill="solid" shape="round">
+          {{ 'START' | uppercase }}!
+      </ion-button>
+  </ion-toolbar>
+</ion-footer>

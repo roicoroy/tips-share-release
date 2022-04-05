@@ -1,0 +1,8 @@
+ion-slides{
+	--bullet-background-active: var(--ion-color-dark);
+}
+:host(.first-slide-active) {
+    .skip-walkthrough-button {
+      visibility: hidden;
+    }
+  }

@@ -1,0 +1,7 @@
+{
+  "name": "Tips Share",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

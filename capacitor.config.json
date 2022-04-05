@@ -1,0 +1,13 @@
+{
+	"appId": "uk.tips.share",
+	"appName": "Tips Share",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+  "plugins": {
+    "Keyboard": {
+      "resize": "ionic",
+      "style": "dark",
+      "resizeOnFullScreen": true
+    }
+  }
+}
